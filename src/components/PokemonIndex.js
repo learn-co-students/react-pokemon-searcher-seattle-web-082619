@@ -5,6 +5,26 @@ import { Search } from 'semantic-ui-react'
 import _ from 'lodash'
 
 class PokemonPage extends React.Component {
+  constructor() {
+    super()
+    
+    this.state = {
+      allPokemon: [],
+      searchWord: ''
+    }
+  }
+
+
+
+componentDidMount(){
+  fetch('http://localhost:3000/pokemon')
+  .then(res=> res.json())
+  .then(pokemonData => this.setState({ allPokemon: pokemonData}))
+}
+
+
+
+
   render() {
     return (
       <div>
@@ -18,6 +38,7 @@ class PokemonPage extends React.Component {
       </div>
     )
   }
+
 }
 
 export default PokemonPage

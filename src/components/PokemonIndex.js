@@ -14,15 +14,11 @@ class PokemonPage extends React.Component {
     }
   }
 
-
-
 componentDidMount(){
   fetch('http://localhost:3000/pokemon')
   .then(res=> res.json())
   .then(pokemonData => this.setState({ allPokemon: pokemonData}))
 }
-
-
 
 
   render() {
@@ -34,7 +30,7 @@ componentDidMount(){
         <br />
         <Search onSearchChange={_.debounce(() => console.log('🤔'), 500)} showNoResults={false} />
         <br />
-        <PokemonCollection />
+        <PokemonCollection pokemon={this.state.allPokemon} />
       </div>
     )
   }

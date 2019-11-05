@@ -1,17 +1,18 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
+import PokemonPage from '../components/PokemonIndex'
 
 class PokemonCard extends React.Component {
 
-  render() {
+  render(props) {
     return (
-      <Card>
+      <Card pokemonPlayer={props.allPokemon} >
         <div>
           <div className="image">
             <img alt="oh no!" />
           </div>
           <div className="content">
-            <div className="header">POKEMON NAME HERE</div>
+            <div className="header">POKEMON NAME HERE  {props.allPokemon.name}</div>
           </div>
           <div className="extra content">
             <span>
